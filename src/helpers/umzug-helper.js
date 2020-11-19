@@ -3,16 +3,16 @@ import _ from 'lodash';
 import helpers from './index';
 
 const storage = {
-  migration: 'sequelize',
+  migration: 'json',
   seeder: 'none',
 };
 const storageTableName = {
-  migration: 'SequelizeMeta',
-  seeder: 'SequelizeData',
+  migration: 'MyGrationMeta',
+  seeder: 'MyGrationData',
 };
 const storageJsonName = {
-  migration: 'sequelize-meta.json',
-  seeder: 'sequelize-data.json',
+  migration: 'mygration-meta.json',
+  seeder: 'mygration-data.json',
 };
 
 let timestampsDefault = false;

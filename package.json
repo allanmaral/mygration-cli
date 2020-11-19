@@ -1,10 +1,10 @@
 {
-  "name": "sequelize-cli",
-  "version": "6.2.0",
-  "description": "The Sequelize CLI",
+  "name": "mygration-cli",
+  "version": "0.1.0",
+  "description": "The MyGration CLI",
   "bin": {
-    "sequelize": "./lib/sequelize",
-    "sequelize-cli": "./lib/sequelize"
+    "mygration": "./lib/mygration",
+    "mygration-cli": "./lib/mygration"
   },
   "files": [
     "lib"
@@ -15,6 +15,7 @@
     "js-beautify": "^1.8.8",
     "lodash": "^4.17.5",
     "resolve": "^1.5.0",
+    "tedious": "^9.2.1",
     "umzug": "^2.3.0",
     "yargs": "^15.0.0"
   },
@@ -49,7 +50,7 @@
   },
   "scripts": {
     "build": "npm run build-clean && babel src -d lib && npm run build-bin && npm run build-assets",
-    "build-bin": "mv ./lib/sequelize.js ./lib/sequelize && chmod +x ./lib/sequelize",
+    "build-bin": "mv ./lib/mygration.js ./lib/mygration && chmod +x ./lib/mygration",
     "build-assets": "cp -R ./src/assets ./lib/",
     "build-clean": "rm -rf ./lib/",
     "lint": "eslint test src",

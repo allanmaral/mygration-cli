@@ -14,7 +14,7 @@ module.exports = {
     ];
 
     this.log();
-    this.log(clc.underline('Sequelize CLI [' + versions.join(', ') + ']'));
+    this.log(clc.underline('MyGration CLI [' + versions.join(', ') + ']'));
     this.log();
   },
 

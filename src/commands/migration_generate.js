@@ -19,7 +19,7 @@ exports.handler = function (args) {
   fs.writeFileSync(
     helpers.path.getMigrationPath(args.name),
     helpers.template.render(
-      'migrations/skeleton.js',
+      'migrations/skeleton.sql',
       {},
       {
         beautify: false,

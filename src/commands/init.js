@@ -14,25 +14,15 @@ exports.handler = async function (argv) {
   switch (command) {
     case 'init':
       await initConfig(argv);
-      await initModels(argv);
       await initMigrations(argv);
-      await initSeeders(argv);
       break;
 
     case 'init:config':
       await initConfig(argv);
       break;
 
-    case 'init:models':
-      await initModels(argv);
-      break;
-
     case 'init:migrations':
       await initMigrations(argv);
-      break;
-
-    case 'init:seeders':
-      await initSeeders(argv);
       break;
   }
 
@@ -49,15 +39,6 @@ function initConfig(args) {
   }
 }
 
-function initModels(args) {
-  helpers.init.createModelsFolder(!!args.force);
-  helpers.init.createModelsIndexFile(!!args.force);
-}
-
 function initMigrations(args) {
   helpers.init.createMigrationsFolder(!!args.force);
-}
-
-function initSeeders(args) {
-  helpers.init.createSeedersFolder(!!args.force);
 }

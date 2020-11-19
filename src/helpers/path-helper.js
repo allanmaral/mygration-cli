@@ -44,7 +44,7 @@ module.exports = {
   },
 
   getFileExtension() {
-    return 'js';
+    return 'sql';
   },
 
   addFileExtension(basename, options) {
@@ -55,24 +55,6 @@ module.exports = {
     return path.resolve(
       this.getPath('migration'),
       this.getFileName('migration', migrationName)
-    );
-  },
-
-  getSeederPath(seederName) {
-    return path.resolve(
-      this.getPath('seeder'),
-      this.getFileName('seeder', seederName)
-    );
-  },
-
-  getModelsPath() {
-    return args.modelsPath || path.resolve(process.cwd(), 'models');
-  },
-
-  getModelPath(modelName) {
-    return path.resolve(
-      this.getModelsPath(),
-      this.addFileExtension(modelName.toLowerCase())
     );
   },
 

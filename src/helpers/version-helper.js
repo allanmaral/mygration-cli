@@ -35,6 +35,7 @@ module.exports = {
         postgresql: 'pg',
         mariadb: 'mariasql',
         mysql: 'mysql',
+        mssql: 'mssql',
       }[config.dialect];
     } else {
       return null;
