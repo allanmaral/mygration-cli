@@ -24,19 +24,10 @@ module.exports = {
     return commands;
   },
   async runCommands(commands, sequelize) {
-    const transaction = await sequelize.transaction();
-    try {
+    await sequelize.transaction(async (transaction) => {
       for (const cmd of commands) {
         await sequelize.query(cmd, { transaction });
       }
-      // If the execution reaches this line, no errors were thrown.
-      // We commit the transaction.
-      await transaction.commit();
-    } catch (error) {
-      // If the execution reaches this line, an error was thrown.
-      // We rollback the transaction.
-      await transaction.rollback();
-      throw error;
-    }
+    });
   },
 };
