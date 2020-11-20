@@ -71,29 +71,25 @@ const api = {
       JSON.stringify(
         {
           development: {
-            username: 'root',
-            password: null,
-            database: 'database_development',
-            host: '127.0.0.1',
+            database: 'DATABASE_NAME',
+            host: 'COMPUTER_OR_HOST_NAME',
             logging: false,
             dialect: 'mssql',
+            dialectOptions: {
+              authentication: {
+                type: 'default',
+                options: {
+                  userName: 'sa',
+                  password: 'PASSWORD',
+                },
+              },
+              options: {
+                validateBulkLoadParameters: true,
+              },
+            },
           },
-          test: {
-            username: 'root',
-            password: null,
-            database: 'database_test',
-            host: '127.0.0.1',
-            logging: false,
-            dialect: 'mssql',
-          },
-          production: {
-            username: 'root',
-            password: null,
-            database: 'database_production',
-            host: '127.0.0.1',
-            logging: false,
-            dialect: 'mssql',
-          },
+          test: {},
+          production: {},
         },
         undefined,
         2
