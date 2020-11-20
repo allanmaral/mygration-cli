@@ -10,7 +10,7 @@ export function buildRelease(startDate, endDate) {
 
   const files = fs.readdirSync(migrationsDir);
   const migrations = files
-    .filter((file) => file.match(/^(?!_migration|_release).*\.sql$/))
+    .filter((file) => file.match(helpers.migration.getFileSelector()))
     .filter((file) => {
       const date = helpers.date.fromName(file);
       return date >= start && (!end || date <= end);

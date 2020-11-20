@@ -1,6 +1,6 @@
-import path from 'path';
+import Sequelize from 'sequelize';
+import sequelizeInfo from 'sequelize/package.json';
 
-const resolve = require('resolve').sync;
 import getYArgs from '../core/yargs';
 
 const args = getYArgs().argv;
@@ -11,25 +11,8 @@ const generic = {
   },
 
   getSequelize: (file) => {
-    const resolvePath = file ? path.join('sequelize', file) : 'sequelize';
-    const resolveOptions = { basedir: process.cwd() };
-
-    let sequelizePath;
-
-    try {
-      sequelizePath = require.resolve(resolvePath, resolveOptions);
-    } catch (e) {
-      // ignore error
-    }
-
-    try {
-      sequelizePath = sequelizePath || resolve(resolvePath, resolveOptions);
-    } catch (e) {
-      console.error('Unable to resolve sequelize package in ' + process.cwd());
-      process.exit(1);
-    }
-
-    return require(sequelizePath);
+    if (!file) return Sequelize;
+    else return sequelizeInfo;
   },
 
   execQuery: (sequelize, sql, options) => {

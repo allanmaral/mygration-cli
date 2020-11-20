@@ -45,7 +45,7 @@ export async function getMigrator(type, args) {
     migrations: {
       params: [sequelize.getQueryInterface(), Sequelize],
       path: helpers.path.getPath(type),
-      pattern: /^(?!_migration|_release).*\.sql$/,
+      pattern: helpers.migration.getFileSelector(),
       customResolver: helpers.query.resolver(sequelize),
     },
   });

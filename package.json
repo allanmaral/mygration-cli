@@ -1,5 +1,5 @@
 {
-  "name": "mygration-cli",
+  "name": "mygration",
   "version": "0.1.0",
   "description": "The MyGration CLI",
   "bin": {
@@ -15,6 +15,7 @@
     "js-beautify": "^1.8.8",
     "lodash": "^4.17.5",
     "resolve": "^1.5.0",
+    "sequelize": "^6.1.0",
     "tedious": "^9.2.1",
     "umzug": "^2.3.0",
     "yargs": "^15.0.0"
@@ -35,12 +36,8 @@
     "pg": "latest",
     "pg-hstore": "latest",
     "prettier": "^2.0.5",
-    "sequelize": "^6.1.0",
     "sqlite3": "latest",
     "through2": "^4.0.0"
-  },
-  "options": {
-    "mocha": "--require scripts/mocha-bootload.js --bail --check-leaks --exit --timeout 30000 --colors --recursive --reporter spec"
   },
   "prettier": {
     "trailingComma": "es5",
@@ -56,12 +53,12 @@
     "lint": "eslint test src",
     "pretty": "prettier src test --write",
     "prepare": "npm run build",
-    "test-raw": "mocha $npm_package_options_mocha 'test/**/*.test.js'",
-    "test": "npm run lint && npm run build && npm run test-raw"
+    "test-raw": "echo \"No test specified\"",
+    "test": "echo \"No test specified\""
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/sequelize/cli.git"
+    "url": "git://github.com/allanmaral/mygration-cli.git"
   },
   "keywords": [
     "sequelize",
@@ -69,23 +66,12 @@
   ],
   "contributors": [
     {
-      "name": "Sascha Depold",
-      "email": "sascha@depold.com"
-    },
-    {
-      "name": "Paulo R Lopes",
-      "email": "prplopes@gmail.com"
-    },
-    {
-      "name": "Sushant Dhiman",
-      "email": "sushantdhiman@outlook.com"
+      "name": "Allan Amaral",
+      "email": "allanmaralr@gmail.com"
     }
   ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sequelize/cli/issues"
-  },
-  "homepage": "https://github.com/sequelize/cli",
+  "homepage": "https://github.com/allanmaral/mygration-cli",
   "engines": {
     "node": ">=10.0.0"
   }

@@ -30,4 +30,8 @@ module.exports = {
       this.generateTableCreationFileContent(args)
     );
   },
+
+  getFileSelector: () => {
+    return /^\d{14}-.*\.sql$/;
+  },
 };

@@ -14,13 +14,13 @@ This is a very niche CLI, but feel free to use and contribute.
 Install the Sequelize CLI to be used in your project with
 
 ```bash
-npm install --save-dev mygration-cli
+npm install --save-dev mygration
 ```
 
 Or install it globally with
 
 ```bash
-npm install --global mygration-cli
+npm install --global mygration
 ```
 
 ### Usage
