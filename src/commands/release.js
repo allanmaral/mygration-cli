@@ -14,7 +14,10 @@ exports.builder = (yargs) =>
     })
   ).argv;
 
-exports.handler = function (args) {
+exports.handler = async function (args) {
+  // legacy, gulp used to do this
+  await helpers.config.init();
+
   buildRelease(args.startDate, args.endDate);
   helpers.view.log(
     'New deploy migration was created at',

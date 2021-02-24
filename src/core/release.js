@@ -7,6 +7,7 @@ export function buildRelease(startDate, endDate) {
   const migrationsDir = helpers.path.getPath('migration');
   const start = helpers.date.parse(startDate);
   const end = helpers.date.parse(endDate);
+  const config = helpers.config.readConfig();
 
   const files = fs.readdirSync(migrationsDir);
   const migrations = files
@@ -34,6 +35,9 @@ export function buildRelease(startDate, endDate) {
     return result;
   }, {});
 
+  const appendUseCommand = !!config.database;
+  const prefixCommand = appendUseCommand ? `USE ${config.database};\n\n` : '';
+
   const sql = Object.entries(migrationBlocks)
     .sort(([a], [b]) => a.localeCompare(b))
     .reduce((result, [block, commands]) => {
@@ -41,7 +45,7 @@ export function buildRelease(startDate, endDate) {
       const separator = Array(blockName.length).fill('#').join('');
       const blockSQL = `-- ${separator}\n-- ${blockName}\n-- ${separator}\n${commands}\n`;
       return result + blockSQL;
-    }, '');
+    }, prefixCommand);
 
   fs.writeFileSync(path.resolve(migrationsDir, '_migration.sql'), sql);
 }

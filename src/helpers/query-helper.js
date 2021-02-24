@@ -16,10 +16,7 @@ module.exports = {
       .replace(/\/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+\//g, '')
       .replace(/--.+\r{0,1}\n/g, '');
 
-    const commands = uncommentedFile
-      .split(/;/g)
-      .map((str) => str.trim())
-      .filter((str) => !!str);
+    const commands = [uncommentedFile.trim()];
 
     return commands;
   },
